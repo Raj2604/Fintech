@@ -1,0 +1,93 @@
+Sub CreateFintechPresentation()
+    ' Create PowerPoint Application object
+    Dim pptApp As Object
+    Set pptApp = CreateObject("PowerPoint.Application")
+    
+    ' Show PowerPoint application
+    pptApp.Visible = True
+    
+    ' Create a new presentation
+    Dim pptPresentation As Object
+    Set pptPresentation = pptApp.Presentations.Add
+    
+    ' Add slides to the presentation
+    Dim slide As Object
+    Dim i As Integer
+    For i = 1 To 12 ' You can adjust the number of slides as needed
+        ' Add a slide
+        Set slide = pptPresentation.Slides.Add(i, 1) ' 1 represents the slide layout (Title Slide)
+        
+        ' Add content to the slide
+        Select Case i
+            Case 1
+                slide.Shapes(1).TextFrame.TextRange.Text = "Introduction to Fintech Study Platform"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Transforming Education with Technology" & vbCrLf & _
+                                                            "• Bridging the gap between traditional education and digital innovation." & vbCrLf & _
+                                                            "• Empowering learners and instructors with advanced tools and resources."
+            Case 2
+                slide.Shapes(1).TextFrame.TextRange.Text = "Features Overview"
+                slide.Shapes(2).TextFrame.TextRange.Text = "• Notion-like Study Hub" & vbCrLf & _
+                                                            "• Udemy-style Course Creation" & vbCrLf & _
+                                                            "• Razorpay Integration for Payments" & vbCrLf & _
+                                                            "• Separate Login for Instructors and Users"
+            Case 3
+                slide.Shapes(1).TextFrame.TextRange.Text = "Notion-like Study Hub"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Create, organize, and share study materials seamlessly." & vbCrLf & _
+                                                            "• Centralized platform for notes, documents, and collaborative projects." & vbCrLf & _
+                                                            "• Advanced tagging and search features for efficient knowledge management."
+            Case 4
+                slide.Shapes(1).TextFrame.TextRange.Text = "Udemy-style Course Creation"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Empower instructors to create and publish their courses." & vbCrLf & _
+                                                            "• User-friendly course builder with multimedia support." & vbCrLf & _
+                                                            "• Flexible pricing and enrollment options for learners."
+            Case 5
+                slide.Shapes(1).TextFrame.TextRange.Text = "Razorpay Integration for Payments"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Seamless payment processing for course enrollments." & vbCrLf & _
+                                                            "• Secure and reliable transactions with multiple payment methods." & vbCrLf & _
+                                                            "• Real-time payment tracking and reporting for administrators."
+            Case 6
+                slide.Shapes(1).TextFrame.TextRange.Text = "Separate Login for Instructors and Users"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Distinct user experiences tailored for instructors and learners." & vbCrLf & _
+                                                            "• Instructor portal for course management and analytics." & vbCrLf & _
+                                                            "• User-friendly interface for seamless learning and engagement."
+            Case 7
+                slide.Shapes(1).TextFrame.TextRange.Text = "Course Creation Process"
+                slide.Shapes(2).TextFrame.TextRange.Text = "1. Instructor creates course content." & vbCrLf & _
+                                                            "2. Course details and pricing are set." & vbCrLf & _
+                                                            "3. Course is published for learners to enroll."
+            Case 8
+                slide.Shapes(1).TextFrame.TextRange.Text = "User Registration and Login"
+                slide.Shapes(2).TextFrame.TextRange.Text = "New users register with email and password." & vbCrLf & _
+                                                            "• Seamless social login options for quick access." & vbCrLf & _
+                                                            "Returning users login to access their courses."
+            Case 9
+                slide.Shapes(1).TextFrame.TextRange.Text = "Payment Workflow"
+                slide.Shapes(2).TextFrame.TextRange.Text = "1. User selects course and proceeds to checkout." & vbCrLf & _
+                                                            "2. Payment details are entered securely." & vbCrLf & _
+                                                            "3. Razorpay processes payment and confirms enrollment."
+            Case 10
+                slide.Shapes(1).TextFrame.TextRange.Text = "Demo: Creating a New Course"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Live demonstration of instructor creating a new course." & vbCrLf & _
+                                                            "• Adding course materials, setting pricing, and publishing."
+            Case 11
+                slide.Shapes(1).TextFrame.TextRange.Text = "Demo: Enrolling in a Course"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Live demonstration of user enrolling in a course and making payment." & vbCrLf & _
+                                                            "• Selecting course, entering payment details, and confirming enrollment."
+            Case 12
+                slide.Shapes(1).TextFrame.TextRange.Text = "Conclusion and Q&A"
+                slide.Shapes(2).TextFrame.TextRange.Text = "Summary of key points and open floor for questions." & vbCrLf & _
+                                                            "• Reflect on the transformative potential of the fintech study platform." & vbCrLf & _
+                                                            "• Address audience queries and discuss future enhancements."
+        End Select
+    Next
+    
+    ' Save the presentation
+    Dim filePath As String
+    filePath = "C:\Path\to\your\fintech_presentation.pptx" ' Change the file path as needed
+    pptPresentation.SaveAs filePath
+    
+    ' Clean up
+    pptPresentation.Close
+    pptApp.Quit
+    Set pptApp = Nothing
+End Sub
